@@ -1,0 +1,68 @@
+.bienvenidos {
+    margin-bottom: 20px;
+}
+
+.bienvenidos h2 {
+    font-size: 32px; 
+    margin-bottom: 10px;
+    color: #0052A5; 
+}
+
+.bienvenidos p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.carbonos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f8f8f8;
+    border: 2px solid #0052A5;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 30%;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+}
+
+.cardbody {
+    padding: 15px;
+    text-align: center;
+
+}
+
+.cardbody h5 {
+    font-size: 20px; 
+    color: #111;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
+
+/*FIN HOME*/
