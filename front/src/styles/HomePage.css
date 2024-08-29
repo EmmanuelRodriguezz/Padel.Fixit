@@ -1,11 +1,48 @@
-.bienvenidos {
-    margin-bottom: 20px;
+.holder {
+    display: flex;
+    width: 100%;
+    padding: 20px;
 }
 
+.hold {
+    display: block;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.bienvenidos {
+    width: 48%;
+    padding: 40px 20px;
+    background-color: #fff;
+    border: 2px solid #0052A5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.novedades {
+    width: 48%;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 20px;
+}
+
+.bienvenidos img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+
 .bienvenidos h2 {
-    font-size: 32px; 
+    font-size: 32px;
     margin-bottom: 10px;
-    color: #0052A5; 
+    color: #0052A5;
 }
 
 .bienvenidos p {
@@ -36,9 +73,10 @@
 }
 
 .img {
-    width: 100%;
+    width: 50%;
     height: auto;
     max-height: 200px;
+    max-width: 200px;
 }
 
 .cardbody {
@@ -48,19 +86,19 @@
 }
 
 .cardbody h5 {
-    font-size: 20px; 
+    font-size: 20px;
     color: #111;
     margin: 0;
 }
 
 @media (max-width: 768px) {
-    .card {
+    .bienvenidos {
         width: 45%;
     }
 }
 
 @media (max-width: 480px) {
-    .card {
+    .bienvenidos {
         width: 100%;
     }
 }

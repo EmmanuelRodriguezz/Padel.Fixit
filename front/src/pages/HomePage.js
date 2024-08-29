@@ -1,10 +1,27 @@
 import '../styles/HomePage.css';
-import React from "react";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import NovedadItem from '../components/novedades/NovedadItem';
 
 
 const HomePage = (props) => {
+    const [loading, setLoading] = useState(false);
+    const [novedades, setNovedades] = useState([]);
+
+    useEffect(() => {
+        const cargarNovedades = async () => {
+            setLoading(true);
+            const response = await axios.get('http://localhost:3000/api/novedades');
+            setNovedades(response.data);
+            setLoading(false);
+        };
+
+        cargarNovedades();
+    }, []);
+
     return (
-        <main className="hover">
+        <section className="hold">
+
             <div className="bienvenidos">
                 <h2>Bienvenidos</h2>
                 <p>
@@ -15,27 +32,20 @@ const HomePage = (props) => {
                     en Fixit nos comprometemos a proporcionar los mejores servicios y productos para optimizar el rendimiento deportivo.
                 </p>
             </div>
-            <div className="carbonos">
-                <div className="card">
-                    <img src="/img/HOME/CARBONO 3K TWIL.webp" className="img" alt="3k twil" />
-                    <div className="cardbody">
-                        <h5>Carbono 3K twil</h5>
-                    </div>
-                </div>
-                <div className="card">
-                    <img src="img/HOME/CARBONO 3K PLANE.png" class="img" alt="3k plane" />
-                    <div className="cardbody">
-                        <h5>Carbono 3K plane</h5>
-                    </div>
-                </div>
-                <div className="card">
-                    <img src="img/HOME/CARBONO 12K.png" class="img" alt="12k twil" />
-                    <div className="cardbody">
-                        <h5>Carbono 12K twil</h5>
-                    </div>
-                </div>
-            </div>
-        </main>
+            <h2>Novedades</h2>
+            <div className='novedades'>
+
+                {
+                    loading ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        novedades.map(item => <NovedadItem key={item.id}
+                            title={item.titulo} subtitle={item.subtitulo}
+                            imagen={item.imagen} body={item.cuerpo} />)
+                    )
+                }
+            </div >
+        </section>
     );
 }
 
